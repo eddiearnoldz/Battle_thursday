@@ -17,3 +17,14 @@ feature 'Enter names' do
     expect(page).to have_content "Charlotte Eddie"
   end
 end
+
+feature "play game", type: :feature do 
+  scenario "display battle option buttons" do
+  visit '/play'
+  expect(page).to have_selector(:link_or_button, "Attack!")
+  expect(page).to have_selector(:link_or_button, "Paralyse")
+  expect(page).to have_selector(:link_or_button, "Sleep, zzz")
+  expect(page).to have_selector(:link_or_button, "Poison @_@") 
+  expect(page).to have_selector(:link_or_button, "Heal <3") 
+  end
+end
