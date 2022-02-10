@@ -10,13 +10,17 @@ end
 
 feature 'Enter names' do
   scenario "Display player names" do
-    visit '/'
-    fill_in :player_one, with: 'Charlotte'
-    fill_in :player_two, with: 'Eddie'
-    click_button 'Submit'
-    expect(page).to have_content "Charlotte Eddie"
+    sign_in_and_play
+    expect(page).to have_content "Charlotte vs. Eddie"
   end
 end
+
+
+
+
+
+
+
 
 feature "play game", type: :feature do 
   scenario "display battle option buttons" do
@@ -25,6 +29,6 @@ feature "play game", type: :feature do
   expect(page).to have_selector(:link_or_button, "Paralyse")
   expect(page).to have_selector(:link_or_button, "Sleep, zzz")
   expect(page).to have_selector(:link_or_button, "Poison @_@") 
-  expect(page).to have_selector(:link_or_button, "Heal <3") 
+  expect(page).to have_selector(:link_or_button, "Heal") 
   end
 end
