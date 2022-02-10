@@ -1,7 +1,8 @@
 <%= @player_one %> vs. <%= @player_two %><br>
 <%= @player_two %>: 60HP
-<form>
-  <button type="button">"Attack!"</button>      
+ 
+<form action="/attack" method="post">
+<input type="submit" value="Attack!">   
   <button type="button">"Paralyse"</button>      
   <button type="button">"Sleep, zzz"</button>      
   <button type="button">"Poison @_@"</button>      
