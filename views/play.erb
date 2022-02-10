@@ -1,5 +1,6 @@
-<%= @player_one %> vs. <%= @player_two %><br>
-<%= @player_two %>: 60HP
+<%= @player_one.name %> vs. <%= @player_two.name %>
+<%= @player_two.name %>: <%= @player_two.hp %>HP
+<%= @player_one.name %>: <%= @player_one.hp %>HP
  
 <form action="/attack" method="post">
 <input type="submit" value="Attack!">   
@@ -8,3 +9,4 @@
   <button type="button">"Poison @_@"</button>      
   <button type="button">"Heal"</button>      
 </form>
+
