@@ -8,30 +8,27 @@ class BattleApp < Sinatra::Base
     register Sinatra::Reloader
   end
 
-# enable :sessions
-
   get '/' do
     erb :index
   end
 
   post '/names' do
-    $player_one = Player.new(params[:player_one])
-    $player_two = Player.new(params[:player_two])
-    $game = Game.new($player_one, $player_two)
+    $game = Game.new(Player.new(params[:player_one]), Player.new(params[:player_two]))
     redirect '/play'
   end
 
   get '/play' do 
-    @player_one = $player_one
-    @player_two = $player_two
+    @player_one = $game.player1
+    @player_two = $game.player2
+    @game = $game
     erb :play
   end
 
   post '/attack' do
-    @player_one = $player_one
-    @player_two = $player_two
-    $game.attack(@player_two)
-   # erb :attack
+    @player_one = $game.player1
+    @player_two = $game.player2
+    @game = $game
+    @game.attack(@player_two)
     redirect '/play'
   end
 

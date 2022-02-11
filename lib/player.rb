@@ -10,7 +10,7 @@ class Player
 
   def attack_status
     @attacked = true
-    p self.attacked
+    self.attacked
   end
 
   def reduces_hp

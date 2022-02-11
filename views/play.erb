@@ -1,11 +1,11 @@
-<%= @player_one.name %> vs. <%= @player_two.name %>
+<%= @game.player1.name %> vs. <%= @game.player2.name %>
 
-<%if @player_one.attacked == true%>
-  <%= @player_one.name %> was attacked by <%= @player_two.name %><br>
+<%if @game.player2.attacked == true%>
+  <%= @game.player2.name %> was attacked by <%= @game.player1.name %><br>
 <%end%>
 
-<%= @player_two.name %>: <%= @player_two.hp %>HP
-<%= @player_one.name %>: <%= @player_one.hp %>HP
+<%= @game.player2.name %>: <%= @game.player2.hp %>HP
+<%= @game.player1.name %>: <%= @game.player1.hp %>HP
 
 <form action="/attack" method="post">
 <input type="submit" value="Attack!">   
